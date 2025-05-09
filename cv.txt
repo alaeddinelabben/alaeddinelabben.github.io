@@ -1,0 +1,36 @@
+Personal Information
+ Curriculum Vitae - Ala Eddine Labben- Address: Moknine, Tunisia- Phone: +216 52 058 361- Email: alaeddine.labben@gmail.com- LinkedIn: linkedin.com/in/alaeddine-labben
+ Professional Summary
+ A versatile Full Stack Developer with over two years of experience in web and mobile application
+ development. 
+Skilled in modern technologies such as Vue.js, Node.js, Flutter, and React.js. Proficient in creating
+ innovative 
+software solutions and optimizing system performance. Experienced in IT project management,
+ quality assurance, 
+and problem-solving with a strong foundation in API development and database management.
+ Professional Experience
+ IT Project Manager
+ AC Time International | Sousse
+ March 2024 - Present- Planned project phases and allocated resources to meet deadlines and budget constraints.- Led development teams to achieve project objectives and supervised task execution.- Tracked requirements with stakeholders and converted them into actionable tasks.- Identified and mitigated risks to ensure project success.- Ensured product quality through testing and optimized app performance.
+ Page 1
+Curriculum Vitae - Ala Eddine Labben
+ Full Stack Developer
+ Carthago Time and Security Systems | Sousse
+ June 2021 - March 2024- Developed and maintained web and mobile applications using Vue.js, Node.js, PHP, and modern
+ frameworks such as Next.js and Nuxt.js.- Enhanced user experiences through performance optimization and responsiveness improvements.- Collaborated with the team to design and implement new features for client platforms.
+ Full Stack Development Intern
+ Leoni | Sousse
+ February 2021 - June 2021- Supported web functionality development using PHP, JavaScript, Vue.js, and Laravel.- Gained practical experience in front-end and back-end integration.
+ Education
+ Master's in Data Science
+ Higher Institute of Applied Mathematics and Computer Science, Kairouan (Expected: 2025)
+ Applied License in Network Technology
+ Higher Institute of Applied Mathematics and Computer Science, Kairouan (2018 - 2021)
+ Baccalaureate
+ Jammel 1 High School (2017 - 2018)
+ Technical Skills
+ Page 2
+Curriculum Vitae - Ala Eddine Labben- Programming Languages: PHP, JavaScript, Java, C#, Swift, Dart- Front-End Frameworks: Vue.js, React.js, Next.js, Nuxt.js- Back-End Frameworks: Node.js, Laravel- Mobile Development: Flutter, Swift- Databases: MySQL, MongoDB, PostgreSQL- APIs: RESTful API design and development- Other Skills: HTML, CSS, Sass, Arduino programming, debugging, and problem-solving
+ Languages- Arabic (Native)- French (Advanced)- English (Intermediate)
+ Interests- Sports- Exploring new technologies
+ 
