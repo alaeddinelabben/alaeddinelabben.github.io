@@ -1,5 +1,57 @@
 // Wait for the DOM to be fully loaded
 document.addEventListener("DOMContentLoaded", function () {
+  // Preloader
+  const preloader = document.querySelector('.preloader');
+  
+  if (preloader) {
+    window.addEventListener('load', function() {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    });
+    
+    // Fallback if load event already fired
+    setTimeout(() => {
+      preloader.classList.add('fade-out');
+      setTimeout(() => {
+        preloader.style.display = 'none';
+      }, 500);
+    }, 1500);
+  }
+  // Mobile navigation toggle
+  const mobileNavToggle = document.querySelector(".mobile-nav-toggle");
+  const nav = document.querySelector("nav");
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  if (mobileNavToggle) {
+    mobileNavToggle.addEventListener("click", function() {
+      nav.classList.toggle("active");
+      
+      // Change icon based on menu state
+      const icon = this.querySelector("i");
+      if (nav.classList.contains("active")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-times");
+      } else {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+      }
+    });
+  }
+
+  // Close mobile menu when clicking on a link
+  navLinks.forEach(link => {
+    link.addEventListener("click", function() {
+      if (nav.classList.contains("active")) {
+        nav.classList.remove("active");
+        const icon = mobileNavToggle.querySelector("i");
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+      }
+    });
+  });
+
   // Smooth scrolling for navigation links
   document.querySelectorAll('nav a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
@@ -105,4 +157,45 @@ document.addEventListener("DOMContentLoaded", function () {
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
   }
+  
+  // Form input focus effects
+  const formInputs = document.querySelectorAll('input, textarea');
+  
+  formInputs.forEach(input => {
+    input.addEventListener('focus', function() {
+      this.parentElement.classList.add('focus');
+    });
+    
+    input.addEventListener('blur', function() {
+      if (this.value === '') {
+        this.parentElement.classList.remove('focus');
+      }
+    });
+    
+    // Check on load if input has value
+    if (input.value !== '') {
+      input.parentElement.classList.add('focus');
+    }
+  });
+  
+  // Add animation class when scrolling to elements
+  const animatedElements = document.querySelectorAll('.section-title, .about-content, .project-card, .skill-category, .timeline-item, .contact-info, form');
+  
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate-in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+  
+  animatedElements.forEach(el => {
+    observer.observe(el);
+  });
 });
