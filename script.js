@@ -79,6 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
       header.classList.remove("sticky");
     }
   });
+ 
+
+  emailjs.init("XVBZLNZcvzJUpFexT");
+
 
   // Form submission
   const contactForm = document.getElementById("contact-form");
@@ -89,20 +93,78 @@ document.addEventListener("DOMContentLoaded", function () {
       // Get form values
       const name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
+      const subject = document.getElementById("subject").value;
       const message = document.getElementById("message").value;
 
       // Basic validation
-      if (!name || !email || !message) {
-        alert("Please fill in all fields");
+      if (!name || !email || !subject || !message) {
+        showNotification("Please fill in all fields", "error");
         return;
       }
 
-      // Form submission logic would go here
-      // For now, we'll just show a success message
-      alert("Thank you for your message! I will get back to you soon.");
-      contactForm.reset();
+      // Show loading state
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = "Sending...";
+      submitBtn.disabled = true;
+
+      // Send email using EmailJS
+      emailjs.send("service_uvduwuw", "template_aa8z5tm", {
+        from_name: 'Ala Eddine Labben Portfolio',
+        from_email: 'alalbn1999@gmail.com',
+        subject: subject,
+        message: `Email from ${name} (${email}): \n ${message}`,
+        to_name: "Ala Eddine Labben",
+      }).then(
+        function(response) {
+          console.log("SUCCESS!", response.status, response.text);
+          showNotification("Thank you for your message! I will get back to you soon.", "success");
+          contactForm.reset();
+          
+          // Reset button state
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        },
+        function(error) {
+          console.error("FAILED...", error);
+          showNotification("Failed to send message. Please try again or contact me directly via email.", "error");
+          
+          // Reset button state
+          submitBtn.textContent = originalText;
+          submitBtn.disabled = false;
+        }
+      );
     });
   }
+
+  // Notification function
+  function showNotification(message, type) {
+    // Remove existing notification if any
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+      existingNotification.remove();
+    }
+
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    // Show notification
+    setTimeout(() => {
+      notification.classList.add('show');
+    }, 100);
+
+    // Hide and remove notification after 5 seconds
+    setTimeout(() => {
+      notification.classList.remove('show');
+      setTimeout(() => {
+        notification.remove();
+      }, 300);
+    }, 5000);
+  }
+
 
   // Skill animation - add animation when skills are visible
   const skillLists = document.querySelectorAll(".skill-list");
